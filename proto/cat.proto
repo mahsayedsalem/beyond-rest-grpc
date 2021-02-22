@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+message CatRequest {
+    string catName = 1;
+}
+
+message CatResponse {
+    string catMeaw = 1;
+}
+
+service cat {
+      rpc CallCat (CatRequest) returns (CatResponse);
+    }
+

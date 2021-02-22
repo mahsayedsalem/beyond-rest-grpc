@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+message DogRequest {
+    string dogName = 1;
+}
+
+message DogResponse {
+    string dogBark = 1;
+}
+
+service dog {
+      rpc CallDog (DogRequest) returns (DogResponse);
+    }

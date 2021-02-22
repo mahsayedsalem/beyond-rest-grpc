@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+message NotifyRequest {
+    string animalName = 1;
+    string animalType = 2;
+}
+
+message NotifyResponse {
+    string message = 1;
+}
+
+service Owner {
+      rpc Notify (NotifyRequest) returns (NotifyResponse);
+    }
