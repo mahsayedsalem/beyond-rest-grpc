@@ -11,7 +11,7 @@ type Server struct {
 	oc proto.OwnerClient
 }
 
-func NewBranchService(ctx context.Context) *Server {
+func NewCatService(ctx context.Context) *Server {
 	oc := c.NewOwnerClient(ctx)
 	return &Server{
 		oc: oc.Client,
