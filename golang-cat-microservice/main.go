@@ -18,7 +18,7 @@ func main() {
 		log.Fatalf("Error %v", err)
 	}
 
-	service := server.NewBranchService(context.Background())
+	service := server.NewCatService(context.Background())
 	fmt.Println("Cat Server is running")
 	s := grpc.NewServer()
 	proto.RegisterCatServer(s, service)
