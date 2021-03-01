@@ -39,7 +39,7 @@ func (s *Server) CallCat(ctx context.Context, request *proto.CatRequest) (*proto
 
 func (s *Server) AnalyzeCatSound(request *proto.AnalyzeCatSoundRequest, stream proto.Cat_AnalyzeCatSoundServer) error {
 
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 30; i++ {
 		time.Sleep(time.Duration(1) * time.Second)
 		res := &proto.AnalyzeCatSoundResponse{
 			Result: fmt.Sprintf("%s Meaw #%d", request.GetCatName(), i),

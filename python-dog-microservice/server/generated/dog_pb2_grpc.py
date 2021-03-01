@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import dog_pb2 as dog__pb2
+from . import dog_pb2 as dog__pb2
 
 
 class dogStub(object):

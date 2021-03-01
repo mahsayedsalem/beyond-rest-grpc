@@ -5,8 +5,8 @@ protoc -I=../proto --go_out=plugins=grpc:./proto ../proto/cat.proto
 cd ..
 
 cd python-dog-microservice
-env/bin/python -m grpc_tools.protoc -I../proto --python_out=. --grpc_python_out=. ../proto/dog.proto
-env/bin/python -m grpc_tools.protoc -I../proto --python_out=. --grpc_python_out=. ../proto/owner.proto
+env/bin/python -m grpc_tools.protoc -I../proto --python_out=./server/generated --grpc_python_out=./server/generated ../proto/dog.proto
+env/bin/python -m grpc_tools.protoc -I../proto --python_out=./server/generated --grpc_python_out=./server/generated ../proto/owner.proto
 
 cd ..
 

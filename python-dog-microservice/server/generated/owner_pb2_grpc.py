@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import catAnalysis_pb2 as catAnalysis__pb2
+from . import owner_pb2 as owner__pb2
 
 
-class catAnalysisStub(object):
+class OwnerStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,42 +14,42 @@ class catAnalysisStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.AnalyzeSound = channel.unary_unary(
-                '/proto.catAnalysis/AnalyzeSound',
-                request_serializer=catAnalysis__pb2.AnalysisRequest.SerializeToString,
-                response_deserializer=catAnalysis__pb2.AnalysisResponse.FromString,
+        self.Notify = channel.unary_unary(
+                '/proto.Owner/Notify',
+                request_serializer=owner__pb2.NotifyRequest.SerializeToString,
+                response_deserializer=owner__pb2.NotifyResponse.FromString,
                 )
 
 
-class catAnalysisServicer(object):
+class OwnerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def AnalyzeSound(self, request, context):
+    def Notify(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_catAnalysisServicer_to_server(servicer, server):
+def add_OwnerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'AnalyzeSound': grpc.unary_unary_rpc_method_handler(
-                    servicer.AnalyzeSound,
-                    request_deserializer=catAnalysis__pb2.AnalysisRequest.FromString,
-                    response_serializer=catAnalysis__pb2.AnalysisResponse.SerializeToString,
+            'Notify': grpc.unary_unary_rpc_method_handler(
+                    servicer.Notify,
+                    request_deserializer=owner__pb2.NotifyRequest.FromString,
+                    response_serializer=owner__pb2.NotifyResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'proto.catAnalysis', rpc_method_handlers)
+            'proto.Owner', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class catAnalysis(object):
+class Owner(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def AnalyzeSound(request,
+    def Notify(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class catAnalysis(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/proto.catAnalysis/AnalyzeSound',
-            catAnalysis__pb2.AnalysisRequest.SerializeToString,
-            catAnalysis__pb2.AnalysisResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/proto.Owner/Notify',
+            owner__pb2.NotifyRequest.SerializeToString,
+            owner__pb2.NotifyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
