@@ -14,9 +14,3 @@ class GrpcOwnerClient:
 
     def close(self):
         self._channel.close()
-
-    def __enter__(self):
-        return self
-  
-    def __exit_(self):
-        self.close()
