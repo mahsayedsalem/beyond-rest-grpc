@@ -10,7 +10,16 @@ message CatResponse {
     string catMeaw = 1;
 }
 
+message AnalyzeCatSoundRequest {
+    string catName = 1;
+  }
+  
+  message AnalyzeCatSoundResponse {
+    string result = 1;
+  }
+
 service cat {
       rpc CallCat (CatRequest) returns (CatResponse);
+      rpc AnalyzeCatSound (AnalyzeCatSoundRequest) returns (stream AnalyzeCatSoundResponse) {}
     }
 

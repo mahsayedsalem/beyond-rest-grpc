@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+message AnalysisRequest {
+    string catName = 1;
+}
+
+message AnalysisResponse {
+    string result = 1;
+}
+
+service catAnalysis {
+    rpc AnalyzeSound (AnalysisRequest) returns (AnalysisResponse) {}
+    }
+
